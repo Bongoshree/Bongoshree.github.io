@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bongoshree – Authentic Bengali Traditions</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Tiro+Bangla&family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --crimson: #8B0000;
+    --deep-red: #C0392B;
+    --gold: #C9922A;
+    --light-gold: #E8C97A;
+    --saffron: #FF6B35;
+    --cream: #FDF6E3;
+    --off-white: #FAF0DC;
+    --dark: #1A0A00;
+    --blush: #F7C5C0;
+    --green-accent: #2D6A4F;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--cream);
+    color: var(--dark);
+    font-family: 'Josefin Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.5;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 18px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(139,0,0,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1.5px solid rgba(201,146,42,0.4);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: var(--light-gold);
+    letter-spacing: 1px;
+    text-decoration: none;
+  }
+  .nav-logo span { color: #fff; font-style: italic; }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 0.72rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--light-gold); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(139,0,0,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(201,146,42,0.15) 0%, transparent 55%),
+      linear-gradient(160deg, #1A0A00 0%, #3D0000 40%, #1A0A00 100%);
+  }
+
+  /* Alpana pattern overlay */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 15% 85%, rgba(201,146,42,0.12) 0%, transparent 35%),
+      radial-gradient(circle at 85% 15%, rgba(201,146,42,0.1) 0%, transparent 30%),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9922A' fill-opacity='0.06'%3E%3Cpath d='M30 0 C30 0 35 15 30 30 C25 15 30 0 30 0Z'/%3E%3Cpath d='M0 30 C0 30 15 35 30 30 C15 25 0 30 0 30Z'/%3E%3Cpath d='M60 30 C60 30 45 35 30 30 C45 25 60 30 60 30Z'/%3E%3Cpath d='M30 60 C30 60 35 45 30 30 C25 45 30 60 30 60Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 48px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero-text { animation: fadeInLeft 1.1s ease both; }
+
+  .hero-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--light-gold);
+    border: 1px solid rgba(201,146,42,0.5);
+    padding: 6px 18px;
+    border-radius: 2px;
+    margin-bottom: 28px;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.8rem);
+    font-weight: 900;
+    line-height: 1.08;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .hero-title .accent {
+    color: var(--light-gold);
+    font-style: italic;
+  }
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 36px;
+    line-height: 1.6;
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, var(--gold), var(--saffron));
+    color: #fff;
+    padding: 16px 38px;
+    font-size: 0.72rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 8px 32px rgba(201,146,42,0.4);
+  }
+  .hero-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 40px rgba(201,146,42,0.5);
+  }
+
+  .hero-visual {
+    animation: fadeInRight 1.1s ease 0.3s both;
+    position: relative;
+  }
+
+  .saree-mosaic {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 220px 140px 100px;
+    gap: 10px;
+    height: 480px;
+  }
+  .mosaic-card {
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.4s;
+  }
+  .mosaic-card:hover { transform: scale(1.03); }
+  .mosaic-card:nth-child(1) {
+    grid-row: 1 / 3;
+    background: linear-gradient(145deg, #8B0000, #C0392B);
+  }
+  .mosaic-card:nth-child(2) {
+    background: linear-gradient(145deg, #B7860C, #E8C97A);
+  }
+  .mosaic-card:nth-child(3) {
+    background: linear-gradient(145deg, #2D6A4F, #52B788);
+  }
+  .mosaic-card:nth-child(4) {
+    grid-column: 1 / 3;
+    background: linear-gradient(145deg, #6A1E55, #C06C84);
+  }
+  .mosaic-card:nth-child(5) {
+    background: linear-gradient(145deg, #FF6B35, #FFB347);
+  }
+  .mosaic-icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.85);
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-style: italic;
+    text-align: center;
+    padding: 12px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  }
+  .mosaic-icon .big { font-size: 2.4rem; display: block; margin-bottom: 4px; }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 100px 48px; }
+  .section-header {
+    text-align: center;
+    margin-bottom: 70px;
+  }
+  .section-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 700;
+    color: var(--crimson);
+    line-height: 1.15;
+  }
+  .section-title em { font-style: italic; color: var(--dark); }
+  .divider {
+    width: 64px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--saffron));
+    margin: 18px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ── PRODUCTS ── */
+  #products { background: var(--off-white); }
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .product-card {
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(139,0,0,0.08);
+    transition: transform 0.35s, box-shadow 0.35s;
+    position: relative;
+  }
+  .product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 50px rgba(139,0,0,0.18);
+  }
+  .product-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--crimson), var(--gold));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+  .product-card:hover::after { transform: scaleX(1); }
+
+  .product-image {
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .product-image .emoji-art {
+    font-size: 5rem;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+    transition: transform 0.4s;
+  }
+  .product-card:hover .emoji-art { transform: scale(1.12) rotate(-3deg); }
+
+  .product-body { padding: 24px; }
+  .product-tag {
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .product-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--crimson);
+    margin-bottom: 10px;
+  }
+  .product-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.65;
+  }
+
+  /* Product image backgrounds */
+  .bg-saree   { background: linear-gradient(135deg, #FFF0F0, #FFD6D6); }
+  .bg-blouse  { background: linear-gradient(135deg, #F0FFF4, #D6FFE4); }
+  .bg-shakha  { background: linear-gradient(135deg, #FFFBF0, #FFE8A0); }
+  .bg-sindur  { background: linear-gradient(135deg, #FFF0F5, #FFD6E7); }
+  .bg-alta    { background: linear-gradient(135deg, #FFF5F0, #FFD0C0); }
+
+  /* ── HERITAGE BANNER ── */
+  .heritage {
+    background:
+      linear-gradient(135deg, var(--crimson) 0%, #5C0000 100%);
+    padding: 90px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .heritage::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C9922A' fill-opacity='0.08'%3E%3Ccircle cx='40' cy='40' r='30'/%3E%3Ccircle cx='40' cy='40' r='20'/%3E%3Ccircle cx='40' cy='40' r='10'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  .heritage-inner {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .heritage-inner blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-style: italic;
+    color: var(--light-gold);
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+  .heritage-inner cite {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* ── COLLECTIONS ── */
+  #collections { background: var(--cream); }
+  .collections-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .collections-text .tag {
+    font-size: 0.65rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--saffron);
+    display: block;
+    margin-bottom: 14px;
+  }
+  .collections-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  .collections-text p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.75;
+    margin-bottom: 32px;
+  }
+  .feature-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+  .feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 0.82rem;
+    letter-spacing: 1px;
+    color: var(--dark);
+  }
+  .feature-list li::before {
+    content: '✦';
+    color: var(--gold);
+    font-size: 0.7rem;
+    flex-shrink: 0;
+  }
+
+  .collections-visual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .col-swatch {
+    border-radius: 6px;
+    padding: 28px 18px;
+    text-align: center;
+    transition: transform 0.3s;
+    cursor: pointer;
+  }
+  .col-swatch:hover { transform: rotate(-1deg) scale(1.04); }
+  .col-swatch:nth-child(2) { margin-top: 24px; }
+  .col-swatch:nth-child(4) { margin-top: -24px; }
+  .col-swatch .swatch-icon { font-size: 2.5rem; margin-bottom: 8px; }
+  .col-swatch .swatch-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  .swatch-red   { background: linear-gradient(145deg, #C0392B, #8B0000); box-shadow: 0 8px 24px rgba(139,0,0,0.3); }
+  .swatch-gold  { background: linear-gradient(145deg, #E8A000, #C9922A); box-shadow: 0 8px 24px rgba(201,146,42,0.3); }
+  .swatch-green { background: linear-gradient(145deg, #2D6A4F, #1B4332); box-shadow: 0 8px 24px rgba(45,106,79,0.3); }
+  .swatch-pink  { background: linear-gradient(145deg, #C06C84, #6A1E55); box-shadow: 0 8px 24px rgba(192,108,132,0.3); }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials {
+    background: linear-gradient(160deg, #1A0A00 0%, #3D0000 100%);
+    padding: 100px 48px;
+  }
+  #testimonials .section-title { color: var(--light-gold); }
+  #testimonials .section-title em { color: rgba(255,255,255,0.7); }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .testimonial-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,146,42,0.2);
+    border-radius: 6px;
+    padding: 32px;
+    position: relative;
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .testimonial-card:hover {
+    background: rgba(255,255,255,0.09);
+    border-color: rgba(201,146,42,0.4);
+  }
+  .testimonial-card::before {
+    content: '\201C';
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: rgba(201,146,42,0.25);
+    position: absolute;
+    top: 10px;
+    left: 24px;
+    line-height: 1;
+  }
+  .testimonial-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+  .testimonial-author {
+    font-size: 0.7rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--off-white);
+    padding: 100px 48px;
+  }
+  .contact-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .contact-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    color: var(--crimson);
+    margin-bottom: 16px;
+  }
+  .contact-info p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.75;
+    margin-bottom: 40px;
+  }
+  .contact-items { display: flex; flex-direction: column; gap: 24px; }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 18px 22px;
+    background: #fff;
+    border-radius: 4px;
+    border-left: 3px solid var(--gold);
+    box-shadow: 0 2px 12px rgba(139,0,0,0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .contact-item:hover {
+    transform: translateX(6px);
+    box-shadow: 0 6px 24px rgba(139,0,0,0.12);
+  }
+  .contact-icon { font-size: 1.6rem; flex-shrink: 0; }
+  .contact-detail { display: flex; flex-direction: column; gap: 2px; }
+  .contact-label {
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .contact-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--dark);
+  }
+  .contact-value a {
+    color: var(--dark);
+    text-decoration: none;
+    border-bottom: 1.5px dashed rgba(139,0,0,0.3);
+    padding-bottom: 1px;
+    transition: color 0.25s, border-color 0.25s;
+  }
+  .contact-value a:hover {
+    color: var(--crimson);
+    border-color: var(--crimson);
+  }
+
+  .contact-deco {
+    position: relative;
+    padding-top: 20px;
+  }
+  .alpana-art {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .map-wrapper { margin-top: 32px; }
+
+  /* ── MAP CARD ── */
+  .map-card {
+    display: block;
+    margin-top: 32px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    box-shadow: 0 6px 30px rgba(139,0,0,0.15);
+    transition: transform 0.35s, box-shadow 0.35s;
+    border: 1.5px solid rgba(201,146,42,0.25);
+  }
+  .map-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 44px rgba(139,0,0,0.25);
+  }
+  .map-card-bg {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+  }
+  .map-card-overlay {
+    background: linear-gradient(135deg, var(--crimson), #5C0000);
+    padding: 16px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .map-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .map-card-label {
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--light-gold);
+  }
+  .map-card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  .map-card-coords {
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 1px;
+  }
+  .map-card-btn {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    padding: 9px 18px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    transition: background 0.3s;
+    white-space: nowrap;
+  }
+  .map-card:hover .map-card-btn {
+    background: rgba(255,255,255,0.22);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    padding: 40px 48px;
+    text-align: center;
+    border-top: 1.5px solid rgba(201,146,42,0.2);
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--light-gold);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .footer-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: rgba(255,255,255,0.45);
+    font-size: 0.95rem;
+    margin-bottom: 18px;
+  }
+  .footer-copy {
+    font-size: 0.62rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-40px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(40px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse-ring {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50%       { transform: scale(1.06); opacity: 1; }
+  }
+
+  .fade-up {
+    animation: fadeInUp 0.8s ease both;
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── FLOATING DECORATIONS ── */
+  .float-deco {
+    position: absolute;
+    pointer-events: none;
+    font-size: 4rem;
+    opacity: 0.06;
+    animation: floatAround 8s ease-in-out infinite;
+  }
+  @keyframes floatAround {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    33%       { transform: translateY(-18px) rotate(5deg); }
+    66%       { transform: translateY(10px) rotate(-3deg); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { gap: 20px; }
+    section { padding: 70px 24px; }
+    .hero-content { grid-template-columns: 1fr; gap: 48px; padding: 100px 24px 60px; }
+    .saree-mosaic { height: 360px; }
+    .collections-wrapper { grid-template-columns: 1fr; }
+    .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
+    .contact-deco { display: none; }
+  }
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .hero-title { font-size: 2.4rem; }
+    .saree-mosaic { grid-template-columns: 1fr; grid-template-rows: repeat(5, 120px); height: auto; }
+    .mosaic-card:nth-child(1) { grid-row: auto; }
+    .mosaic-card:nth-child(4) { grid-column: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#"><span>Bongo</span>shree</a>
+  <ul class="nav-links">
+    <li><a href="#products">Collections</a></li>
+    <li><a href="#traditions">Heritage</a></li>
+    <li><a href="#testimonials">Stories</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <span class="float-deco" style="top:15%;left:5%;">🪷</span>
+  <span class="float-deco" style="top:70%;right:8%;animation-delay:3s;">✦</span>
+  <span class="float-deco" style="bottom:10%;left:45%;animation-delay:6s;">🌸</span>
+  <div class="hero-content">
+    <div class="hero-text">
+      <span class="hero-badge">✦ Authentic Bengali Craft ✦</span>
+      <h1 class="hero-title">
+        The Soul of<br>
+        <span class="accent">Bengal</span>,<br>
+        Woven in Thread
+      </h1>
+      <p class="hero-subtitle">
+        Handpicked sarees, sacred shakha, vibrant alta & more — <br>
+        carrying the timeless grace of Bengali tradition.
+      </p>
+      <a class="hero-cta" href="#products">
+        Explore Collections
+        <span>→</span>
+      </a>
+    </div>
+    <div class="hero-visual">
+      <div class="saree-mosaic">
+        <div class="mosaic-card">
+          <div class="mosaic-icon">
+            <span class="big">🥻</span>
+            Authentic Sarees
+          </div>
+        </div>
+        <div class="mosaic-card">
+          <div class="mosaic-icon">
+            <span class="big">🔴</span>
+            Sindur
+          </div>
+        </div>
+        <div class="mosaic-card">
+          <div class="mosaic-icon">
+            <span class="big">⚪</span>
+            Shakha
+          </div>
+        </div>
+        <div class="mosaic-card">
+          <div class="mosaic-icon">
+            <span class="big">🪷</span>
+            Alta · Blouses · Nighties
+          </div>
+        </div>
+        <div class="mosaic-card">
+          <div class="mosaic-icon">
+            <span class="big">✨</span>
+            Pure Tradition
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="section-header reveal">
+    <span class="section-eyebrow">✦ Our Collections ✦</span>
+    <h2 class="section-title">Crafted with <em>Love & Legacy</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="products-grid">
+
+    <div class="product-card reveal" style="transition-delay:0.1s">
+      <div class="product-image bg-saree">
+        <span class="emoji-art">🥻</span>
+      </div>
+      <div class="product-body">
+        <span class="product-tag">Signature</span>
+        <h3 class="product-name">Bengali Authentic Sarees</h3>
+        <p class="product-desc">Handwoven masterpieces in Tant, Muslin, Katan, and Jamdani — each thread carrying the artistry of generations of Bengali weavers.</p>
+      </div>
+    </div>
+
+    <div class="product-card reveal" style="transition-delay:0.2s">
+      <div class="product-image bg-blouse">
+        <span class="emoji-art">👗</span>
+      </div>
+      <div class="product-body">
+        <span class="product-tag">Everyday Grace</span>
+        <h3 class="product-name">Cotton Blouses & Nighties</h3>
+        <p class="product-desc">Soft, breathable, and beautifully crafted cotton blouses and nightwear designed for comfort without compromising on elegance.</p>
+      </div>
+    </div>
+
+    <div class="product-card reveal" style="transition-delay:0.3s">
+      <div class="product-image bg-shakha">
+        <span class="emoji-art">⚪</span>
+      </div>
+      <div class="product-body">
+        <span class="product-tag">Sacred Adornment</span>
+        <h3 class="product-name">Bengali Shakha</h3>
+        <p class="product-desc">Traditional white conch shell bangles — the sacred symbol of Bengali marriage — crafted with purity and devotion, in all sizes and styles.</p>
+      </div>
+    </div>
+
+    <div class="product-card reveal" style="transition-delay:0.4s">
+      <div class="product-image bg-sindur">
+        <span class="emoji-art">🔴</span>
+      </div>
+      <div class="product-body">
+        <span class="product-tag">Divine Symbol</span>
+        <h3 class="product-name">Bengali Sindur</h3>
+        <p class="product-desc">Premium quality vermilion sindur in traditional Bengali containers — a symbol of love and auspiciousness, pure and vibrant in every shade.</p>
+      </div>
+    </div>
+
+    <div class="product-card reveal" style="transition-delay:0.5s">
+      <div class="product-image bg-alta">
+        <span class="emoji-art">🪷</span>
+      </div>
+      <div class="product-body">
+        <span class="product-tag">Festive Ritual</span>
+        <h3 class="product-name">Bengali Alta</h3>
+        <p class="product-desc">Vivid red liquid alta to adorn feet during festivals, pujas, and weddings — an age-old Bengali tradition in rich, long-lasting formulas.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HERITAGE BANNER -->
+<div class="heritage" id="traditions">
+  <div class="heritage-inner">
+    <blockquote>
+      "In every weave, every vermilion hue, every shell bangle —<br>
+      lies the beating heart of Bengali womanhood."
+    </blockquote>
+    <cite>✦ Bongoshree — Celebrating Bengali Heritage ✦</cite>
+  </div>
+</div>
+
+<!-- COLLECTIONS / WHY US -->
+<section id="collections">
+  <div class="collections-wrapper">
+    <div class="collections-text reveal">
+      <span class="tag">✦ Why Choose Bongoshree ✦</span>
+      <h2>Authenticity You Can <em style="color:var(--crimson); font-style:italic;">Feel</em></h2>
+      <p>Every product in our collection is carefully sourced from skilled artisans and traditional craftspeople across Bengal. We believe in preserving the heritage while making it accessible to every home.</p>
+      <ul class="feature-list">
+        <li>100% authentic, handpicked Bengali products</li>
+        <li>Direct from weavers and traditional craftspeople</li>
+        <li>Premium quality sarees in all price ranges</li>
+        <li>Pure shell shakha with traditional craftsmanship</li>
+        <li>Vibrant, skin-safe alta and sindur</li>
+        <li>Soft, breathable cotton blouses and nightwear</li>
+      </ul>
+    </div>
+    <div class="collections-visual reveal">
+      <div class="col-swatch swatch-red">
+        <div class="swatch-icon">🥻</div>
+        <div class="swatch-name">Saree</div>
+      </div>
+      <div class="col-swatch swatch-gold">
+        <div class="swatch-icon">⚪</div>
+        <div class="swatch-name">Shakha</div>
+      </div>
+      <div class="col-swatch swatch-green">
+        <div class="swatch-icon">👗</div>
+        <div class="swatch-name">Cotton</div>
+      </div>
+      <div class="col-swatch swatch-pink">
+        <div class="swatch-icon">🪷</div>
+        <div class="swatch-name">Alta</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-header reveal">
+    <span class="section-eyebrow" style="color:var(--gold)">✦ Customer Stories ✦</span>
+    <h2 class="section-title" style="color:var(--light-gold)">Voices of <em>Our Community</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal">
+      <p class="testimonial-text">The Tant saree I ordered was absolutely exquisite — the texture, the border, the weave. It took me back to my grandmother's dressing room in Kolkata. Pure nostalgia and pure quality.</p>
+      <span class="testimonial-author">— Priya Banerjee, Koramangala, Bengaluru</span>
+    </div>
+    <div class="testimonial-card reveal" style="transition-delay:0.2s">
+      <p class="testimonial-text">The shakha feels absolutely authentic, not like the ones you find in regular stores. The craftmanship is beautiful and arrived safely packed. I'm ordering again for my daughter's wedding.</p>
+      <span class="testimonial-author">— Mita Ghosh, Jayanagar, Bengaluru</span>
+    </div>
+    <div class="testimonial-card reveal" style="transition-delay:0.4s">
+      <p class="testimonial-text">The alta was vibrant, long-lasting and skin-safe. I used it for Durga Puja and received so many compliments. The cotton nighties are also wonderfully soft. Bongoshree never disappoints!</p>
+      <span class="testimonial-author">— Ankita Roy, Whitefield, Bengaluru</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header reveal">
+    <span class="section-eyebrow">✦ Reach Out ✦</span>
+    <h2 class="section-title">Let's <em>Connect</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="contact-wrapper">
+    <div class="contact-info reveal">
+      <h2>We'd love to<br>hear from you</h2>
+      <p>Whether you have a question about our collections, want to place a bulk order, or simply want to share your love for Bengali traditions — we are always here for you.</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <span class="contact-icon">📞</span>
+          <div class="contact-detail">
+            <span class="contact-label">Call Us</span>
+            <span class="contact-value">
+              <a href="tel:9954358658">+91 99543 58658</a>
+            </span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">✉️</span>
+          <div class="contact-detail">
+            <span class="contact-label">Email Us</span>
+            <span class="contact-value">
+              <a href="mailto:dhrubadeb77@gmail.com">dhrubadeb77@gmail.com</a>
+            </span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">🕐</span>
+          <div class="contact-detail">
+            <span class="contact-label">Hours</span>
+            <span class="contact-value">Mon – Sat, 10 AM – 9 PM</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">📍</span>
+          <div class="contact-detail">
+            <span class="contact-label">Our Location</span>
+            <span class="contact-value">
+              <a href="https://maps.app.goo.gl/Y1Zrjaskwr5rRZ939" target="_blank">View on Google Maps →</a>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAP CARD -->
+      <a href="https://maps.app.goo.gl/Y1Zrjaskwr5rRZ939" target="_blank" class="map-card reveal">
+        <div class="map-card-bg">
+          <!-- SVG grid map illustration -->
+          <svg width="100%" height="100%" viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <!-- Road grid -->
+            <rect width="480" height="220" fill="#EDE0D0"/>
+            <!-- Horizontal roads -->
+            <rect x="0" y="60"  width="480" height="10" fill="#D9C9B0" rx="1"/>
+            <rect x="0" y="110" width="480" height="14" fill="#CFC0A0" rx="1"/>
+            <rect x="0" y="165" width="480" height="8"  fill="#D9C9B0" rx="1"/>
+            <!-- Vertical roads -->
+            <rect x="80"  y="0" width="9"  height="220" fill="#D9C9B0" rx="1"/>
+            <rect x="180" y="0" width="14" height="220" fill="#CFC0A0" rx="1"/>
+            <rect x="310" y="0" width="9"  height="220" fill="#D9C9B0" rx="1"/>
+            <rect x="400" y="0" width="8"  height="220" fill="#D9C9B0" rx="1"/>
+            <!-- Blocks / buildings -->
+            <rect x="20"  y="20"  width="50" height="32" rx="3" fill="#C9B89A" opacity="0.7"/>
+            <rect x="100" y="20"  width="70" height="32" rx="3" fill="#C9B89A" opacity="0.7"/>
+            <rect x="200" y="20"  width="100" height="32" rx="3" fill="#C9B89A" opacity="0.7"/>
+            <rect x="325" y="20"  width="65" height="32" rx="3" fill="#C9B89A" opacity="0.7"/>
+            <rect x="20"  y="78"  width="50" height="24" rx="3" fill="#C9B89A" opacity="0.7"/>
+            <rect x="100" y="78"  width="70" height="24" rx="3" fill="#C9B89A" opacity="0.7"/>
+            <rect x="200" y="78"  width="100" height="24" rx="3" fill="#C9B89A" opacity="0.7"/>
+            <rect x="325" y="78"  width="65" height="24" rx="3" fill="#C9B89A" opacity="0.7"/>
+            <rect x="20"  y="130" width="50" height="26" rx="3" fill="#C9B89A" opacity="0.7"/>
+            <rect x="100" y="130" width="70" height="26" rx="3" fill="#C9B89A" opacity="0.7"/>
+            <rect x="200" y="130" width="100" height="26" rx="3" fill="#C9B89A" opacity="0.7"/>
+            <rect x="325" y="130" width="65" height="26" rx="3" fill="#C9B89A" opacity="0.7"/>
+            <rect x="20"  y="180" width="50" height="30" rx="3" fill="#C9B89A" opacity="0.6"/>
+            <rect x="100" y="180" width="70" height="30" rx="3" fill="#C9B89A" opacity="0.6"/>
+            <rect x="200" y="180" width="100" height="30" rx="3" fill="#C9B89A" opacity="0.6"/>
+            <rect x="325" y="180" width="65" height="30" rx="3" fill="#C9B89A" opacity="0.6"/>
+            <!-- Pin shadow -->
+            <ellipse cx="240" cy="130" rx="14" ry="4" fill="rgba(0,0,0,0.18)"/>
+            <!-- Pin body -->
+            <path d="M240 70 C222 70 208 84 208 102 C208 124 240 130 240 130 C240 130 272 124 272 102 C272 84 258 70 240 70Z" fill="#8B0000"/>
+            <path d="M240 70 C222 70 208 84 208 102 C208 124 240 130 240 130 C240 130 272 124 272 102 C272 84 258 70 240 70Z" fill="url(#pinGrad)"/>
+            <defs>
+              <linearGradient id="pinGrad" x1="208" y1="70" x2="272" y2="130" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#C0392B"/>
+                <stop offset="100%" stop-color="#6B0000"/>
+              </linearGradient>
+            </defs>
+            <!-- Pin inner circle -->
+            <circle cx="240" cy="100" r="10" fill="#fff" opacity="0.9"/>
+            <circle cx="240" cy="100" r="5"  fill="#8B0000"/>
+            <!-- Pulse rings -->
+            <circle cx="240" cy="100" r="22" stroke="#8B0000" stroke-width="1.5" fill="none" opacity="0.3"/>
+            <circle cx="240" cy="100" r="34" stroke="#8B0000" stroke-width="1"   fill="none" opacity="0.15"/>
+          </svg>
+        </div>
+        <div class="map-card-overlay">
+          <div class="map-card-info">
+            <span class="map-card-label">📍 Our Location</span>
+            <span class="map-card-name">Bengaluru, Karnataka</span>
+            <span class="map-card-coords">12.8689° N, 77.6651° E</span>
+          </div>
+          <div class="map-card-btn">Open in Google Maps →</div>
+        </div>
+      </a>
+    </div>
+    <div class="contact-deco reveal">
+      <!-- Bengali Alpana SVG decoration -->
+      <svg class="alpana-art" viewBox="0 0 280 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Outer ring -->
+        <circle cx="140" cy="160" r="120" stroke="#C9922A" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.5"/>
+        <!-- Middle ring -->
+        <circle cx="140" cy="160" r="85" stroke="#C9922A" stroke-width="1" opacity="0.35"/>
+        <!-- Inner ring -->
+        <circle cx="140" cy="160" r="50" stroke="#8B0000" stroke-width="1.5" opacity="0.6"/>
+        <!-- Center bloom -->
+        <circle cx="140" cy="160" r="18" fill="#C9922A" opacity="0.25"/>
+        <circle cx="140" cy="160" r="9" fill="#8B0000" opacity="0.5"/>
+        <!-- Petals (top) -->
+        <ellipse cx="140" cy="100" rx="12" ry="28" fill="#C9922A" opacity="0.3" transform="rotate(0 140 160)"/>
+        <ellipse cx="140" cy="100" rx="12" ry="28" fill="#C9922A" opacity="0.3" transform="rotate(45 140 160)"/>
+        <ellipse cx="140" cy="100" rx="12" ry="28" fill="#C9922A" opacity="0.3" transform="rotate(90 140 160)"/>
+        <ellipse cx="140" cy="100" rx="12" ry="28" fill="#C9922A" opacity="0.3" transform="rotate(135 140 160)"/>
+        <ellipse cx="140" cy="100" rx="12" ry="28" fill="#C9922A" opacity="0.3" transform="rotate(180 140 160)"/>
+        <ellipse cx="140" cy="100" rx="12" ry="28" fill="#C9922A" opacity="0.3" transform="rotate(225 140 160)"/>
+        <ellipse cx="140" cy="100" rx="12" ry="28" fill="#C9922A" opacity="0.3" transform="rotate(270 140 160)"/>
+        <ellipse cx="140" cy="100" rx="12" ry="28" fill="#C9922A" opacity="0.3" transform="rotate(315 140 160)"/>
+        <!-- Corner dots -->
+        <circle cx="30" cy="30" r="6" fill="#8B0000" opacity="0.4"/>
+        <circle cx="250" cy="30" r="6" fill="#8B0000" opacity="0.4"/>
+        <circle cx="30" cy="290" r="6" fill="#8B0000" opacity="0.4"/>
+        <circle cx="250" cy="290" r="6" fill="#8B0000" opacity="0.4"/>
+        <!-- Corner lines -->
+        <path d="M30 30 L60 30 M30 30 L30 60" stroke="#C9922A" stroke-width="1.5" opacity="0.5"/>
+        <path d="M250 30 L220 30 M250 30 L250 60" stroke="#C9922A" stroke-width="1.5" opacity="0.5"/>
+        <path d="M30 290 L60 290 M30 290 L30 260" stroke="#C9922A" stroke-width="1.5" opacity="0.5"/>
+        <path d="M250 290 L220 290 M250 290 L250 260" stroke="#C9922A" stroke-width="1.5" opacity="0.5"/>
+        <!-- Text inside -->
+        <text x="140" y="155" text-anchor="middle" font-family="'Playfair Display', serif" font-size="11" fill="#8B0000" opacity="0.7" font-style="italic">বঙ্গশ্রী</text>
+        <text x="140" y="172" text-anchor="middle" font-family="serif" font-size="8" fill="#C9922A" opacity="0.6" letter-spacing="2">BONGOSHREE</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">Bongoshree</span>
+  <p class="footer-tagline">Carrying the soul of Bengal, one thread at a time.</p>
+  <p class="footer-copy">© 2025 Bongoshree · All rights reserved · Made with ♥ for Bengali traditions</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Nav scroll effect
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      nav.style.padding = '12px 48px';
+      nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.3)';
+    } else {
+      nav.style.padding = '18px 48px';
+      nav.style.boxShadow = 'none';
+    }
+  });
+</script>
+</body>
+</html>
